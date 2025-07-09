@@ -25,10 +25,10 @@
     "yargs": "^13.2.4"
   },
   "scripts": {
-    "_react": "cross-env NODE_OPTIONS=--openssl-legacy-provider BROWSER=none react-scripts start",
-    "_electron": "nodemon --exec \"cross-env APP_URL=http://localhost:3000 electron .\" --ext js --watch public/",
+    "_react": "cross-env NODE_OPTIONS=--openssl-legacy-provider BROWSER=none PORT=9999 react-scripts start",
+    "_electron": "nodemon --exec \"cross-env APP_URL=http://localhost:9999 electron .\" --ext js --watch public/",
     "_build": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
-    "start": "concurrently \"yarn _react\" \"wait-on http://localhost:3000 && yarn _electron\" ",
+    "start": "concurrently \"yarn _react\" \"wait-on http://localhost:9999 && yarn _electron\" ",
     "build": "yarn _build && build --mac --win --linux --x64 --ia32 -p always",
     "icons": "electron-icon-maker -i public/img/pennywise.png -o public",
     "test": "mocha"
